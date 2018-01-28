@@ -1,0 +1,17 @@
+language: bash
+sudo: false
+
+addons:
+  apt:
+    sources:
+    - debian-sid
+    packages:
+    - shellcheck
+
+script:
+ - shellcheck wakatime.plugin.zsh
+
+notifications:
+  email:
+    on_success: never
+    on_failure: change
