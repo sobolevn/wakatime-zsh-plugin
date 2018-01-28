@@ -16,7 +16,8 @@ _heartbeat() {
         exit 0
     fi
 
-    local project, binary
+    local project
+    local binary
     project=$(_current_directory)
     binary=$(_last_command)
 
@@ -34,10 +35,10 @@ _current_directory() {
     # We only take the `root` directory name.
     # We detect `root` directories by `.git` folder.
     # If we are not in the git repository,
-    # take the current working directory.
+    # take the default `Terminal` project.
     local root_directory
     root_directory=$(
-        git rev-parse --show-toplevel 2>/dev/null || echo "$PWD"
+        git rev-parse --show-toplevel 2>/dev/null || echo "Terminal"
     )
     echo "${root_directory##*/}"
 }

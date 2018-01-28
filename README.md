@@ -5,17 +5,52 @@
 
 ## Reasoning
 
-TODO
+Tracking much time you spend on actually writing code is very important.
+Because it helps you to plan ahead and to give fair estimates.
+
+Wakatime solves this problem with shine! But, not for terminal...
+I guess we have all been in a situation when all our work in centered on some process happing in our terminal, not IDE.
+
+`wakatime-zsh-plugin` solves this part. Now your time will be gently saved.
 
 
 ## Installation
 
-TODO
+Before we start you will need to run:
+
+```bash
+pip install wakatime
+```
+
+This command will install [Wakatime's CLI](https://github.com/wakatime/wakatime).
+
+### antigen
+
+If you're using [`antigen`](https://github.com/zsh-users/antigen), you can install this plugin with `antigen bundle sobolevn/wakatime-zsh-plugin`.
+
+### zgen
+
+If you're using `zgen`, add this plugin to your `init.zsh` with `zgen load sobolevn/wakatime-zsh-plugin`.
+
+### Manual
+
+Just copy the [`wakatime.plugin.zsh`](/wakatime.plugin.zsh) to your `~/.oh-my-zsh/custom/plugins/` folder.
+
+This set of commands will probably do what you want:
+
+```shell
+git clone https://github.com/sobolevn/wakatime-zsh-plugin.git
+ln -s $PWD/wakatime-zsh-plugin/wakatime.plugin.zsh ~/.oh-my-zsh/custom/plugins/wakatime.plugin.zsh
+```
+
+Then set `wakatime` to [the plugins list](https://github.com/robbyrussell/oh-my-zsh/wiki/External-plugins) inside your `.zshrc`.
 
 
 ## Configuration
 
-TODO
+Wakatime supports configuration via [`~/.wakatime.cfg`](https://github.com/wakatime/wakatime#configuring). You will need to set your `api_key`.
+
+You can also disable tracking for some period of time by setting `$WAKATIME_DO_NOT_TRACK` environment variable to any non-empty value.
 
 
 ## Alternatives
