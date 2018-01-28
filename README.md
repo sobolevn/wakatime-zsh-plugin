@@ -12,6 +12,9 @@ Wakatime solves this problem with shine! But, not for terminal...
 I guess we have all been in a situation when all our work in centered on some process happing in our terminal, not IDE.
 
 `wakatime-zsh-plugin` solves this part. Now your time will be gently saved.
+We save time-per-project. And how much time each command took.
+
+If you are not inside the project, we will create a virtual `Terminal` project.
 
 
 ## Installation
