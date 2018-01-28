@@ -4,7 +4,7 @@
 # Documentation is available at:
 # https://github.com/sobolevn/wakatime-zsh-plugin
 
-PLUGIN_VERSION="0.0.1"
+PLUGIN_VERSION="0.0.2"
 
 
 _heartbeat() {
@@ -13,18 +13,21 @@ _heartbeat() {
     # Set `$WAKATIME_DO_NOT_TRACK` to non-empty value to skip the tracking.
     if [[ ! -z "$WAKATIME_DO_NOT_TRACK" ]]; then
         # Tracking is skipped!
-        exit 0
+        return
     fi
 
     # Checks if `wakatime` is installed:
     if [[ ! "$(command -v wakatime)" ]]; then
-        echo "Wakatime is not installed, run: `pip install wakatime`"
-        echo "Aborting..."
-        exit 1
+        echo "wakatime is not installed, run:"
+        echo "$ pip install wakatime"
+        echo
+        echo "Time is not tracked for now."
+        return
     fi
 
     # Running `wakatime`'s CLI in async mode:
     # TODO(@sobolevn): should we keep `sh` as the language?
+    # shellcheck disable=SC2091
     $(wakatime --write \
         --plugin "wakatime-zsh-plugin/$PLUGIN_VERSION" \
         --entity-type app \
