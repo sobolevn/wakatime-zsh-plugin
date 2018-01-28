@@ -16,18 +16,22 @@ _heartbeat() {
         exit 0
     fi
 
-    local project
-    local binary
-    project=$(_current_directory)
-    binary=$(_last_command)
+    # Checks if `wakatime` is installed:
+    if [[ ! "$(command -v wakatime)" ]]; then
+        echo "Wakatime is not installed, run: `pip install wakatime`"
+        echo "Aborting..."
+        exit 1
+    fi
 
+    # Running `wakatime`'s CLI in async mode:
     # TODO(@sobolevn): should we keep `sh` as the language?
-    wakatime --write \
+    $(wakatime --write \
         --plugin "wakatime-zsh-plugin/$PLUGIN_VERSION" \
         --entity-type app \
-        --entity "$binary" \
-        --project "$project" \
-        --language sh
+        --entity "$(_last_command)" \
+        --project "$(_current_directory)" \
+        --language sh \
+        >/dev/null 2>&1 &)
 }
 
 
