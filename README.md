@@ -3,18 +3,9 @@
 [![wemake.services](https://img.shields.io/badge/style-wemake.services-green.svg?label=&logo=data%3Aimage%2Fpng%3Bbase64%2CiVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC%2FxhBQAAAAFzUkdCAK7OHOkAAAAbUExURQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP%2F%2F%2F5TvxDIAAAAIdFJOUwAjRA8xXANAL%2Bv0SAAAADNJREFUGNNjYCAIOJjRBdBFWMkVQeGzcHAwksJnAPPZGOGAASzPzAEHEGVsLExQwE7YswCb7AFZSF3bbAAAAABJRU5ErkJggg%3D%3D)](http://wemake.services) [![Build Status](https://img.shields.io/travis/sobolevn/wakatime-zsh-plugin/master.svg)](https://travis-ci.org/sobolevn/wakatime-zsh-plugin)
 
 
-## Reasoning
+## What does this plugin do?
 
-Tracking much time you spend on actually writing code is very important.
-Because it helps you to plan ahead and to give fair estimates.
-
-Wakatime solves this problem with shine! But, not for terminal...
-I guess we have all been in a situation when all our work in centered on some process happing in our terminal, not IDE.
-
-`wakatime-zsh-plugin` solves this part. Now your time will be gently saved.
-We save time-per-project. And how much time each command took.
-
-If you are not inside the project, we will create a virtual `Terminal` project.
+This plugin provides `zsh` and `wakatime` integration. In other words, it tracks all time you spend in a terminal. Unlike other plugins, this one tries to keep all your spent time in the same `wakatime`'s project.
 
 
 ## Installation
