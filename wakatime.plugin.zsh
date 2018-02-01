@@ -29,7 +29,7 @@ _heartbeat() {
     # TODO(@sobolevn): should we keep `sh` as the language?
     # shellcheck disable=SC2091
     $(wakatime --write \
-        --plugin "wakatime-zsh-plugin/$PLUGIN_VERSION" \
+        --plugin "zsh-wakatime-sobolevn-plugin/$PLUGIN_VERSION" \
         --entity-type app \
         --entity "$(_last_command)" \
         --project "$(_current_directory)" \
