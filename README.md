@@ -26,11 +26,13 @@ If you're using `zgen`, add this plugin to your `init.zsh` with `zgen load sobol
 
 ### Manual
 
-```Shell
+```shell
 cd ~/.oh-my-zsh/custom/plugins && git clone https://github.com/sobolevn/wakatime-zsh-plugin.git wakatime
 ```
 
 Then set `wakatime` to [the plugins list](https://github.com/robbyrussell/oh-my-zsh/wiki/External-plugins) inside your `.zshrc`.
+
+Official plugin [documentation](https://github.com/robbyrussell/oh-my-zsh/wiki/Customization#adding-a-new-plugin)
 
 ## Configuration
 
