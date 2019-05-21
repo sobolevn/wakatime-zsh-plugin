@@ -6,12 +6,11 @@
 
 PLUGIN_VERSION="0.0.2"
 
-
 _heartbeat() {
     # Sends a heartbeat to the wakarime server before each command.
     # But it can be disabled by an environment variable:
     # Set `$WAKATIME_DO_NOT_TRACK` to non-empty value to skip the tracking.
-    if [[ ! -z "$WAKATIME_DO_NOT_TRACK" ]]; then
+    if [[ -n "$WAKATIME_DO_NOT_TRACK" ]]; then
         # Tracking is skipped!
         return
     fi
@@ -37,7 +36,6 @@ _heartbeat() {
         >/dev/null 2>&1 &)
 }
 
-
 _current_directory() {
     # We only take the `root` directory name.
     # We detect `root` directories by `.git` folder.
@@ -50,12 +48,12 @@ _current_directory() {
     echo "${root_directory##*/}"
 }
 
-
 _last_command() {
     # We only send the last command to the wakatime.
     # We only send the first argument, which is a binary in 99% of cases.
     # It does not include any sensitive information.
     # shellcheck disable=SC2154
+    # shellcheck disable=SC1087
     echo "$history[$((HISTCMD-1))]" | cut -d ' ' -f1
 }
 
