@@ -1,15 +1,11 @@
 language: bash
 sudo: true
 
-addons:
-  apt:
-    sources:
-    - debian-sid
-    packages:
-    - shellcheck
+before_install:
+  - sudo apt-get -y install shellcheck
 
 script:
- - shellcheck wakatime.plugin.zsh
+  - shellcheck wakatime.plugin.zsh
 
 notifications:
   email:
