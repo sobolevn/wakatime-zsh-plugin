@@ -2,19 +2,26 @@
 
 [![wemake.services](https://img.shields.io/badge/style-wemake.services-green.svg?label=&logo=data%3Aimage%2Fpng%3Bbase64%2CiVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC%2FxhBQAAAAFzUkdCAK7OHOkAAAAbUExURQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP%2F%2F%2F5TvxDIAAAAIdFJOUwAjRA8xXANAL%2Bv0SAAAADNJREFUGNNjYCAIOJjRBdBFWMkVQeGzcHAwksJnAPPZGOGAASzPzAEHEGVsLExQwE7YswCb7AFZSF3bbAAAAABJRU5ErkJggg%3D%3D)](http://wemake.services) [![Build Status](https://img.shields.io/travis/sobolevn/wakatime-zsh-plugin/master.svg)](https://travis-ci.org/sobolevn/wakatime-zsh-plugin) [![GitHub Release](https://img.shields.io/badge/release-0.0.2-brightgreen.svg?style=default)](https://github.com/sobolevn/wakatime-zsh-plugin/releases)
 
+
 ## What does this plugin do?
 
 This plugin provides `zsh` and `wakatime` integration. In other words, it tracks all time you spend in a terminal. Unlike other plugins, this one tries to keep all your spent time in the same `wakatime`'s project.
 
-## Installation
+![Info](https://github.com/sobolevn/wakatime-zsh-plugin/blob/master/info.png)
+
+
+## Prerequisites
 
 Before we start you will need to run:
 
 ```bash
-pip install wakatime
+pip install 'wakatime>=12.0'
 ```
 
 This command will install [Wakatime's CLI](https://github.com/wakatime/wakatime).
+
+
+## Installation
 
 ### antigen
 
@@ -34,11 +41,17 @@ Then set `wakatime` to [the plugins list](https://github.com/robbyrussell/oh-my-
 
 Official plugin [documentation](https://github.com/robbyrussell/oh-my-zsh/wiki/Customization#adding-a-new-plugin)
 
+
 ## Configuration
 
 Wakatime supports configuration via [`~/.wakatime.cfg`](https://github.com/wakatime/wakatime#configuring). You will need to set your `api_key`.
 
-You can also disable tracking for some period of time by setting `$WAKATIME_DO_NOT_TRACK` environment variable to any non-empty value.
+There are number of options to set via your environment variables:
+
+- `$WAKATIME_DO_NOT_TRACK`: you can also disable tracking for some period of time by setting  environment variable to any non-empty value, defaults to `false`
+- `$WAKATIME_TIMEOUT`: to limit the time to sync with the `wakatime` servers, defaults to `5` seconds
+- `$WAKATIME_DISABLE_OFFLINE`: to disable `wakatime` in offline mode, defaults to `false`
+
 
 ## Alternatives
 
@@ -50,6 +63,7 @@ There are several alternatives to this project:
 
 See the full list [here](https://wakatime.com/terminal).
 
+
 ## License
 
-MIT. See [LICENSE.md](https://github.com/sobolevn/wakatime-zsh-plugin/blob/master/LICENSE.md) for more details.
+MIT. See [LICENSE](https://github.com/sobolevn/wakatime-zsh-plugin/blob/master/LICENSE) for more details.
