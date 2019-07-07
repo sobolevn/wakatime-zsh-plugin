@@ -53,7 +53,7 @@ _wakatime_call() {
         --project "$(_current_directory)" \
         --language sh \
         --timeout "$WAKATIME_TIMEOUT" \
-        $(_should_work_online) \
+        "$(_should_work_online)" \
         >/dev/null &)
 }
 
