@@ -6,7 +6,7 @@
 
 # Constants:
 PLUGIN_NAME='wakatime-zsh-plugin'
-PLUGIN_VERSION='0.1.0'
+PLUGIN_VERSION='0.1.1'
 
 # Options:
 WAKATIME_TIMEOUT=${WAKATIME_TIMEOUT:-5}
@@ -16,7 +16,7 @@ _heartbeat() {
     # Sends a heartbeat to the wakarime server before each command.
     # But it can be disabled by an environment variable:
     # Set `$WAKATIME_DO_NOT_TRACK` to non-empty value to skip the tracking.
-    if [[ ! -z "$WAKATIME_DO_NOT_TRACK" ]]; then
+    if [[ -n "$WAKATIME_DO_NOT_TRACK" ]]; then
         # Tracking is skipped!
         return
     fi
@@ -61,7 +61,7 @@ _wakatime_call() {
 _should_work_online() {
     # Checks if the app should work online, otherwise returns
     # a special option to turn `wakatime` sync off:
-    if [[ ! -z "$WAKATIME_DISABLE_OFFLINE" ]]; then
+    if [[ -n "$WAKATIME_DISABLE_OFFLINE" ]]; then
       echo '--disable-offline'
     else
       echo ''
@@ -87,7 +87,7 @@ _last_command() {
     # We only send the first argument, which is a binary in 99% of cases.
     # It does not include any sensitive information.
     # shellcheck disable=SC2154
-    echo "$history[$((HISTCMD-1))]" | cut -d ' ' -f1
+    echo "${history[$((HISTCMD-1))]}" | cut -d ' ' -f1
 }
 
 # See docs on what `precmd_functions` is:

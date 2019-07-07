@@ -1,6 +1,13 @@
 # Changelog
 
 
+## Version 0.1.1
+
+### Improvements
+
+- Linting fixes
+
+
 ## Version 0.1.0
 
 ### Improvements
