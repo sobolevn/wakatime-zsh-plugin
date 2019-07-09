@@ -53,6 +53,7 @@ _wakatime_call() {
         --project "$(_current_directory)" \
         --language sh \
         --timeout "$WAKATIME_TIMEOUT" \
+    # shellcheck disable=SC2046
         $(_should_work_online) \
         >/dev/null &)
 }
