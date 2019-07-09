@@ -45,7 +45,7 @@ _handle_wakatime_exception() {
 
 _wakatime_call() {
     # Running `wakatime`'s CLI in async mode:
-    # shellcheck disable=SC2091
+    # shellcheck disable=SC2046,SC2091
     $(wakatime --write \
         --plugin "${PLUGIN_NAME}/${PLUGIN_VERSION}" \
         --entity-type app \
@@ -53,7 +53,6 @@ _wakatime_call() {
         --project "$(_current_directory)" \
         --language sh \
         --timeout "$WAKATIME_TIMEOUT" \
-    # shellcheck disable=SC2046
         $(_should_work_online) \
         >/dev/null &)
 }
