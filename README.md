@@ -1,6 +1,6 @@
 # wakatime-zsh-plugin
 
-[![wemake.services](https://img.shields.io/badge/style-wemake.services-green.svg?label=&logo=data%3Aimage%2Fpng%3Bbase64%2CiVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC%2FxhBQAAAAFzUkdCAK7OHOkAAAAbUExURQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP%2F%2F%2F5TvxDIAAAAIdFJOUwAjRA8xXANAL%2Bv0SAAAADNJREFUGNNjYCAIOJjRBdBFWMkVQeGzcHAwksJnAPPZGOGAASzPzAEHEGVsLExQwE7YswCb7AFZSF3bbAAAAABJRU5ErkJggg%3D%3D)](http://wemake.services) [![Build Status](https://img.shields.io/travis/sobolevn/wakatime-zsh-plugin/master.svg)](https://travis-ci.org/sobolevn/wakatime-zsh-plugin) [![GitHub Release](https://img.shields.io/badge/release-0.2.0-brightgreen.svg?style=default)](https://github.com/sobolevn/wakatime-zsh-plugin/releases)
+[![wemake.services](https://img.shields.io/badge/style-wemake.services-green.svg?label=&logo=data%3Aimage%2Fpng%3Bbase64%2CiVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABGdBTUEAALGPC%2FxhBQAAAAFzUkdCAK7OHOkAAAAbUExURQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP%2F%2F%2F5TvxDIAAAAIdFJOUwAjRA8xXANAL%2Bv0SAAAADNJREFUGNNjYCAIOJjRBdBFWMkVQeGzcHAwksJnAPPZGOGAASzPzAEHEGVsLExQwE7YswCb7AFZSF3bbAAAAABJRU5ErkJggg%3D%3D)](http://wemake.services) [![Build Status](https://img.shields.io/travis/sobolevn/wakatime-zsh-plugin/master.svg)](https://travis-ci.org/sobolevn/wakatime-zsh-plugin) [![GitHub Release](https://img.shields.io/badge/release-0.2.1-brightgreen.svg?style=default)](https://github.com/sobolevn/wakatime-zsh-plugin/releases)
 
 
 ## What does this plugin do?
