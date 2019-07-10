@@ -1,6 +1,17 @@
 # Changelog
 
 
+## Version 0.2.0
+
+### Improvements
+
+- Addresses review from Reddit: removes useless functions, improves performance
+
+### Bugfixes
+
+- Fixes how `should_work_offline` work
+
+
 ## Version 0.1.1
 
 ### Improvements
