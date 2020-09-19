@@ -48,7 +48,7 @@ Wakatime supports configuration via [`~/.wakatime.cfg`](https://github.com/wakat
 
 There are number of options to set via your environment variables:
 
-- `$WAKATIME_DO_NOT_TRACK`: you can also disable tracking for some period of time by setting  environment variable to any non-empty value, defaults to `false`
+- `$WAKATIME_DO_NOT_TRACK`: you can also disable tracking for some period of time by setting `WAKATIME_DO_NOT_TRACK=1`. defaults to `false`
 - `$WAKATIME_TIMEOUT`: to limit the time to sync with the `wakatime` servers, defaults to `5` seconds
 - `$WAKATIME_DISABLE_OFFLINE`: to disable `wakatime` in offline mode, defaults to `false`
 
