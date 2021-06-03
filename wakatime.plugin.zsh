@@ -26,7 +26,7 @@ _wakatime_heartbeat() {
   # We only send the first argument, which is a binary in 99% of cases.
   # It does not include any sensitive information.
   local last_command
-  last_command=$(echo "$1" | cut -d ' ' -f1)
+  last_command=$(echo "$history[$HISTCMD]" | cut -d ' ' -f1)
 
   # We only take the `root` directory name.
   # We detect `root` directories by `.git` folder.
