@@ -1,10 +1,10 @@
-# wakatime-zsh-plguin
+# wakatime-zsh-plugin
 #
 # Documentation is available at:
 # https://github.com/sobolevn/wakatime-zsh-plugin
 
 _wakatime_heartbeat() {
-  # Sends a heartbeat to the wakarime server before each command.
+  # Sends a heartbeat to the wakatime server before each command.
   # But it can be disabled by an environment variable:
   # Set `$WAKATIME_DO_NOT_TRACK` to 1 to skip the tracking.
   if (( WAKATIME_DO_NOT_TRACK )); then
