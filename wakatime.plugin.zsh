@@ -1,10 +1,10 @@
-# wakatime-zsh-plguin
+# wakatime-zsh-plugin
 #
 # Documentation is available at:
 # https://github.com/sobolevn/wakatime-zsh-plugin
 
 _wakatime_heartbeat() {
-  # Sends a heartbeat to the wakarime server before each command.
+  # Sends a heartbeat to the wakatime server before each command.
   # But it can be disabled by an environment variable:
   # Set `$WAKATIME_DO_NOT_TRACK` to 1 to skip the tracking.
   if (( WAKATIME_DO_NOT_TRACK )); then
@@ -28,14 +28,25 @@ _wakatime_heartbeat() {
   local last_command
   last_command=$(echo "$history[$HISTCMD]" | cut -d ' ' -f1)
 
-  # We only take the `root` directory name.
-  # We detect `root` directories by `.git` folder.
-  # If we are not in the git repository,
-  # take the default `Terminal` project.
+  # Determine the project name
   local root_directory
-  root_directory=$(
-    git rev-parse --show-toplevel 2>/dev/null || echo 'Terminal'
-  )
+
+  # If the `.wakatime-project` file exists
+  # then we read the first line to get the project name
+  # and use it as the `root` directory name.
+  if [ -f .wakatime-project ]; then
+    read -r root_directory < .wakatime-project
+  fi
+
+  # If the `.wakatime-project` file does not exist (or if it is empty)
+  # then we get the `root` directory from the current git repository.
+  # If we are not in a git repository
+  # then we will use the default project name `Terminal`.
+  if [ -z "$root_directory" ]; then
+    root_directory=$(
+      git rev-parse --show-toplevel 2>/dev/null || echo 'Terminal'
+    )
+  fi
 
   # Checks if the app should work online, otherwise returns
   # a special option to turn `wakatime` sync off:
