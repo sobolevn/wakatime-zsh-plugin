@@ -16,7 +16,7 @@ _wakatime_heartbeat() {
   local wakatime_bin="${ZSH_WAKATIME_BIN:='wakatime'}"
 
   # Checks if `wakatime` is installed,
-  if ! wakatime_loc="$(type -p "$wakatime_bin")" || [[ -z $wakatime_bin ]]; then
+  if ! wakatime_loc="$(type -p "$wakatime_bin")"; then
     echo 'wakatime cli is not installed, run:'
     echo '$ pip install wakatime'
     echo
@@ -63,8 +63,8 @@ _wakatime_heartbeat() {
     should_work_online=''
   fi
 
-  $wakatime_bin --write \
-    --plugin 'wakatime-zsh-plugin/0.2.1' \
+  "$wakatime_bin" --write \
+    --plugin 'wakatime-zsh-plugin/0.2.2' \
     --entity-type app \
     --entity "$last_command" \
     --project "${root_directory:t}" \
