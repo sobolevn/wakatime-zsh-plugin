@@ -1,6 +1,12 @@
 # Changelog
 
 
+## Version 0.2.2
+
+### Improvements
+
+- Allows custom wakatime-cli path via ZSH_WAKATIME_BIN environment variable.
+
 ## Version 0.2.0
 
 ### Improvements

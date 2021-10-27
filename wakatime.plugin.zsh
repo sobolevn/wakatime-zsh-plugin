@@ -11,12 +11,18 @@ _wakatime_heartbeat() {
     return  # Tracking is skipped!
   fi
 
+  # Set a custom path for the wakatime-cli binary
+  # otherwise point to the default `wakatime`
+  local wakatime_bin="${ZSH_WAKATIME_BIN:='wakatime'}"
+
   # Checks if `wakatime` is installed,
-  # syntax is `zsh` specific, see: https://unix.stackexchange.com/a/237084
-  if (( ! $+commands[wakatime] )); then
+  if ! wakatime_loc="$(type -p "$wakatime_bin")"; then
     echo 'wakatime cli is not installed, run:'
     echo '$ pip install wakatime'
-    echo 'Or check that wakatime is in PATH'
+    echo
+    echo 'OR:'
+    echo 'Option 1: Check that wakatime is in PATH'
+    echo 'Option 2: Set a custom path with $ export ZSH_WAKATIME_BIN=/path/to/wakatime-cli'
     echo
     echo 'Time is not tracked for now.'
     return
@@ -57,8 +63,8 @@ _wakatime_heartbeat() {
     should_work_online=''
   fi
 
-  wakatime --write \
-    --plugin 'wakatime-zsh-plugin/0.2.1' \
+  "$wakatime_bin" --write \
+    --plugin 'wakatime-zsh-plugin/0.2.2' \
     --entity-type app \
     --entity "$last_command" \
     --project "${root_directory:t}" \
