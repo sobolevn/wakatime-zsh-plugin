@@ -9,7 +9,7 @@ check_file() {
 	[ ! -f "$wakatime_home"/.wakatime.cfg ] || {
 		return
 	}
-	echo 'No Configuration File For Wakatime Found'
+	echo 'No configuration file for Wakatime found'
 	echo -n 'Please Enter Your API Key => '
 	read -r api_key
 	[ ! -z $api_key ] || {
