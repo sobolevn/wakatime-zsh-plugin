@@ -6,7 +6,7 @@
 
 check_file() {
 	local wakatime_home="${WAKATIME_HOME:=$HOME}"
-	[ ! -f $wakatime_home/.wakatime.cfg ] || {
+	[ ! -f "$wakatime_home"/.wakatime.cfg ] || {
 		return
 	}
 	echo 'No Configuration File For Wakatime Found'
