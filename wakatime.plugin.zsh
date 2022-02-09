@@ -12,7 +12,7 @@ check_file() {
 	echo 'No configuration file for Wakatime found'
 	echo -n 'Please Enter Your API Key => '
 	read -r api_key
-	[ ! -z $api_key ] || {
+	[ ! -z "$api_key" ] || {
 		echo 'Invalid API Key Provided, Exiting!'
 		exit 1
 	}
