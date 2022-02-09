@@ -4,6 +4,9 @@
 # https://github.com/sobolevn/wakatime-zsh-plugin
 #
 
+# Check if there is a wakatime configuration file present
+# Needs $WAKATIME_CHECK_CONFIG to be set to 1
+# Default Is False
 check_file() {
 	local wakatime_home="${WAKATIME_HOME:=$HOME}"
 	[ ! -f $wakatime_home/.wakatime.cfg ] || {
@@ -95,7 +98,9 @@ _wakatime_heartbeat() {
     &>/dev/null </dev/null &!
 }
 
-check_file
+if (( WAKATIME_CHECK_CONFIG )); then 
+	check_file
+}
 
 # See docs on `add-zsh-hook`:
 # https://github.com/zsh-users/zsh/blob/master/Functions/Misc/add-zsh-hook
