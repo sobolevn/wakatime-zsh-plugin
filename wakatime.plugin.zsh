@@ -2,6 +2,30 @@
 #
 # Documentation is available at:
 # https://github.com/sobolevn/wakatime-zsh-plugin
+#
+
+# Check if there is a wakatime configuration file present
+# Needs $WAKATIME_CHECK_CONFIG to be set to 1
+# Default Is False
+check_file() {
+	local wakatime_home="${WAKATIME_HOME:=$HOME}"
+	[ ! -f "$wakatime_home"/.wakatime.cfg ] || {
+		return
+	}
+	echo 'No configuration file for Wakatime found'
+	echo -n 'Please enter your API key => '
+	read -r api_key
+	[ ! -z "$api_key" ] || {
+		echo 'Invalid API key provided, exiting!'
+		exit 1
+	}
+  cat << EOF > "$wakatime_home"/.wakatime.cfg
+[settings]
+api_key = $api_key
+EOF
+
+}
+
 
 _wakatime_heartbeat() {
   # Sends a heartbeat to the wakatime server before each command.
@@ -72,6 +96,10 @@ _wakatime_heartbeat() {
     --timeout "${WAKATIME_TIMEOUT:-5}" \
     $should_work_online \
     &>/dev/null </dev/null &!
+}
+
+if (( WAKATIME_CHECK_CONFIG )); then 
+	check_file
 }
 
 # See docs on `add-zsh-hook`:
