@@ -16,7 +16,7 @@ check_file() {
 		echo 'Invalid API Key Provided, Exiting!'
 		exit 1
 	}
-cat << EOF > $wakatime_home/.wakatime.cfg
+  cat << EOF > "$wakatime_home"/.wakatime.cfg
 [settings]
 api_key = $api_key
 EOF
