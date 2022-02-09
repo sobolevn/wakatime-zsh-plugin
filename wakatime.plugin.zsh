@@ -9,17 +9,17 @@
 # Default Is False
 check_file() {
 	local wakatime_home="${WAKATIME_HOME:=$HOME}"
-	[ ! -f $wakatime_home/.wakatime.cfg ] || {
+	[ ! -f "$wakatime_home"/.wakatime.cfg ] || {
 		return
 	}
-	echo 'No Configuration File For Wakatime Found'
-	echo -n 'Please Enter Your API Key => '
+	echo 'No configuration file for Wakatime found'
+	echo -n 'Please enter your API key => '
 	read -r api_key
-	[ ! -z $api_key ] || {
-		echo 'Invalid API Key Provided, Exiting!'
+	[ ! -z "$api_key" ] || {
+		echo 'Invalid API key provided, exiting!'
 		exit 1
 	}
-cat << EOF > $wakatime_home/.wakatime.cfg
+  cat << EOF > "$wakatime_home"/.wakatime.cfg
 [settings]
 api_key = $api_key
 EOF
