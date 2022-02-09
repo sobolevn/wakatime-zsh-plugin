@@ -13,7 +13,7 @@ check_file() {
 	echo -n 'Please enter your API key => '
 	read -r api_key
 	[ ! -z "$api_key" ] || {
-		echo 'Invalid API Key Provided, Exiting!'
+		echo 'Invalid API key provided, exiting!'
 		exit 1
 	}
   cat << EOF > "$wakatime_home"/.wakatime.cfg
