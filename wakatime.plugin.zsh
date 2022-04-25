@@ -12,17 +12,13 @@ _wakatime_heartbeat() {
   fi
 
   # Set a custom path for the wakatime-cli binary
-  # otherwise point to the default `wakatime`
-  local wakatime_bin="${ZSH_WAKATIME_BIN:=wakatime}"
+  # otherwise point to the default `~/.wakatime/wakatime-cli`
+  local wakatime_bin="${ZSH_WAKATIME_BIN:=~/.wakatime/wakatime-cli}"
 
   # Checks if `wakatime` is installed,
   if ! wakatime_loc="$(type -p "$wakatime_bin")"; then
-    echo 'wakatime cli is not installed, run:'
-    echo '$ pip install wakatime'
-    echo
-    echo 'OR:'
-    echo 'Option 1: Check that wakatime is in PATH'
-    echo 'Option 2: Set a custom path with $ export ZSH_WAKATIME_BIN=/path/to/wakatime-cli'
+    echo 'wakatime-cli is not installed, run:'
+    echo '$ python3 -c "$(wget -q -O - https://raw.githubusercontent.com/wakatime/vim-wakatime/master/scripts/install_cli.py)"'
     echo
     echo 'Time is not tracked for now.'
     return
