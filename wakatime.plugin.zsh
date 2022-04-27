@@ -13,7 +13,7 @@ _wakatime_heartbeat() {
 
   # Set a custom path for the wakatime-cli binary
   # otherwise point to the default `~/.wakatime/wakatime-cli`
-  local wakatime_bin="${ZSH_WAKATIME_BIN:=~/.wakatime/wakatime-cli}"
+  local wakatime_bin="${ZSH_WAKATIME_BIN:=$HOME/.wakatime/wakatime-cli}"
 
   # Checks if `wakatime` is installed,
   if ! wakatime_loc="$(type -p "$wakatime_bin")"; then
