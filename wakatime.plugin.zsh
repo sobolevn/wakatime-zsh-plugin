@@ -100,7 +100,7 @@ _wakatime_heartbeat() {
 
 if (( WAKATIME_CHECK_CONFIG )); then 
 	check_file
-}
+fi
 
 # See docs on `add-zsh-hook`:
 # https://github.com/zsh-users/zsh/blob/master/Functions/Misc/add-zsh-hook
