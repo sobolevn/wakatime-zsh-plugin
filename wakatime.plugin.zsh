@@ -60,7 +60,7 @@ _wakatime_heartbeat() {
   fi
 
   "$wakatime_bin" --write \
-    --plugin 'wakatime-zsh-plugin/0.2.2' \
+    --plugin 'zsh-wakatime/0.2.2' \
     --entity-type app \
     --entity "$last_command" \
     --project "${root_directory:t}" \
