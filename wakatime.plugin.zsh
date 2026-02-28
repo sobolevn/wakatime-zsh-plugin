@@ -32,22 +32,26 @@ _wakatime_heartbeat() {
 
   # Determine the project name
   local root_directory
+  local git_root
+  git_root=$(git rev-parse --show-toplevel 2>/dev/null)
 
-  # If the `.wakatime-project` file exists
-  # then we read the first line to get the project name
-  # and use it as the `root` directory name.
+  # Look for `.wakatime-project` first in the current directory,
+  # then at the git repository root (if we are inside a git repo).
+  # If found, read the first line to get the project name.
   if [ -f .wakatime-project ]; then
     read -r root_directory < .wakatime-project
+  elif [ -n "$git_root" ] && [ -f "$git_root/.wakatime-project" ]; then
+    read -r root_directory < "$git_root/.wakatime-project"
   fi
 
   # If the `.wakatime-project` file does not exist (or if it is empty)
-  # then we get the `root` directory from the current git repository.
-  # If we are not in a git repository
+  # and we are not in a git repository,
   # then we will use the default project name `Terminal`.
-  if [ -z "$root_directory" ]; then
-    root_directory=$(
-      git rev-parse --show-toplevel 2>/dev/null || echo 'Terminal'
-    )
+  # When inside a git repo without a `.wakatime-project` file,
+  # we let `wakatime-cli` auto-detect the project name
+  # (e.g. from the git remote, if `project_from_git_remote` is enabled).
+  if [ -z "$root_directory" ] && [ -z "$git_root" ]; then
+    root_directory='Terminal'
   fi
 
   # Checks if the app should work online, otherwise returns
@@ -59,11 +63,16 @@ _wakatime_heartbeat() {
     should_work_online=''
   fi
 
+  local project_option
+  if [ -n "$root_directory" ]; then
+    project_option="--project ${root_directory:t}"
+  fi
+
   "$wakatime_bin" --write \
     --plugin 'wakatime-zsh-plugin/0.2.2' \
     --entity-type app \
     --entity "$last_command" \
-    --project "${root_directory:t}" \
+    $project_option \
     --language sh \
     --timeout "${WAKATIME_TIMEOUT:-5}" \
     $should_work_online \

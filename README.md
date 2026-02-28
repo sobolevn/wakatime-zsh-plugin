@@ -53,6 +53,15 @@ There are number of options to set via your environment variables:
 - `$WAKATIME_DISABLE_OFFLINE`: to disable `wakatime` in offline mode, defaults to `false`
 - `$ZSH_WAKATIME_BIN`: set a custom path for the wakatime cli, defaults to `wakatime`
 
+### Project Detection
+
+The plugin determines the project name using the following priority:
+
+1. `.wakatime-project` file in the current directory
+2. `.wakatime-project` file at the git repository root
+3. If inside a git repo but no `.wakatime-project` file is found, the `--project` flag is omitted so that `wakatime-cli` can auto-detect the project (e.g. from the git remote URL when [`project_from_git_remote`](https://github.com/wakatime/wakatime-cli/blob/develop/USAGE.md) is enabled in `~/.wakatime.cfg`)
+4. If not inside a git repository, the project name defaults to `Terminal`
+
 ## Alternatives
 
 There are several alternatives to this project:
