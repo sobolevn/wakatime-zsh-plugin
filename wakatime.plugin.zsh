@@ -63,9 +63,15 @@ _wakatime_heartbeat() {
     should_work_online=''
   fi
 
+  # `--alternate-project` instead of `--project`: since wakatime-cli v2.24
+  # each invocation also parses AI agent transcripts, and a hard `--project`
+  # would be inherited by those AI heartbeats, overriding their own per-file
+  # project detection (see issue #25). An alternate project is only used
+  # when nothing else is detected, which for this plugin's own app
+  # heartbeats gives the same result as `--project` did.
   local project_option
   if [ -n "$root_directory" ]; then
-    project_option="--project ${root_directory:t}"
+    project_option="--alternate-project ${root_directory:t}"
   fi
 
   "$wakatime_bin" --write \
